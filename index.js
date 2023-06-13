@@ -1,7 +1,7 @@
 import { prompt } from "readline-sync";
-import fs from 'fs';
 import bd from './bancoDados.js';
 import cadastro from './cadastro.js'
+import busca from './busca.js'
 
 //Menu principal, onde todas as funções serão chamadas
 function menu(){
@@ -18,7 +18,7 @@ function menu(){
         case 1:
             return cadastro.janelaCadastro(dados)//adicionar função de cadastrar itens
         case 2:
-            return //adicionar função de verificar itens na lista
+            return busca.janelaBusca(dados)//adicionar função de verificar itens na lista
         case 3:
             return //adicionar função de remover itens da lista
         case 0:
@@ -28,3 +28,5 @@ function menu(){
             return menu();
     }
 }
+
+menu()
