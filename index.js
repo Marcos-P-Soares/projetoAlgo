@@ -1,9 +1,11 @@
 import { prompt } from "readline-sync";
 import fs from 'fs';
-
+import bd from './bancoDados.js';
+import cadastro from './cadastro.js'
 
 //Menu principal, onde todas as funções serão chamadas
 function menu(){
+    let dados = bd.lerArquivos();
     console.log('================================================================')
     console.log('-------------------  Lista de Compras  -------------------------')
     console.log('================================================================\n')
@@ -14,7 +16,7 @@ function menu(){
     let escolha = Number(prompt())
     switch(escolha){
         case 1:
-            return //adicionar função de cadastrar itens
+            return cadastro.janelaCadastro(dados)//adicionar função de cadastrar itens
         case 2:
             return //adicionar função de verificar itens na lista
         case 3:
