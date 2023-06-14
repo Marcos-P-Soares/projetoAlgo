@@ -22,7 +22,7 @@ function menu(){
         case 3:
             return //adicionar função de remover itens da lista
         case 0:
-            return //encerrar o programa
+            break;//encerrar o programa
         default:
             console.log('Opção inválida, por favor, insira escolha uma opção válida.');
             return menu();
