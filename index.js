@@ -29,4 +29,5 @@ function menu(){
     }
 }
 
+export {menu}
 menu()

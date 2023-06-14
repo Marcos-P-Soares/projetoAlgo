@@ -1,6 +1,6 @@
-import fs from 'fs';
 import bd from './bancoDados.js';
-
+import { menu } from './index.js';
+import { prompt } from 'readline-sync';
 
 function janelaCadastro() {
     console.log(`
@@ -42,6 +42,7 @@ function receberValor(){
             preco = Number(prompt());
         }
     }
+    return preco;
 }
 
 function receberEstado(){
@@ -67,7 +68,7 @@ function receberEstado(){
 
 function confirmacao(){
     console.log('|------------------------------------------|');
-    console.log('|   Para continuar a operação, presse 1    |');
+    console.log('|     Para repetir a operação, presse 1    |');
     console.log('|------------------------------------------|');
     console.log('|  Para voltar ao menu principal, presse 2 |');
     console.log('|------------------------------------------|');

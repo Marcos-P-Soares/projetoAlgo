@@ -5,12 +5,11 @@ function lerArquivos(){
         const lista = JSON.parse(fs.readFileSync('./bd.json'));
         return lista;
       } catch (err) {
-        console.log('Não existem itens na lista');
         return [];
       }
 }
 
-function gravarArquivos() {
+function gravarArquivos(item) {
     const conteudo = item;
     try{
         fs.writeFileSync('./bd.json', JSON.stringify(conteudo));
