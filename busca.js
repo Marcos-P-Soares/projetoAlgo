@@ -7,11 +7,15 @@ function janelaBusca(dados) {
 ================================================================
 `);
     do{
-        const itensExibir = dados.filter((item) => item.estado == escolherBusca())
-        itensExibir.sort((a,b) => a.nome - b.nome);
-        for(let i=0; i<itensExibir.length; i++){
-            console.log(`Item: ${itensExibir[i].nome} Valor: ${itensExibir[i].valor}`)
-            console.log(`Estado: ${itensExibir[i].estado}`);
+        if(dados.length===0){
+            console.log('Não há itens cadastrados!')
+        }else{
+            const itensExibir = dados.filter((item) => item.estado == escolherBusca())
+            itensExibir.sort((a,b) => a.nome - b.nome);
+            for(let i=0; i<itensExibir.length; i++){
+                console.log(`Item: ${itensExibir[i].nome} Valor: ${itensExibir[i].valor}`)
+                console.log(`Estado: ${itensExibir[i].estado}`);
+        }
         }
     }while(confirmacao());
 }

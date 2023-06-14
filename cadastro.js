@@ -1,13 +1,15 @@
 import fs from 'fs';
 import bd from './bancoDados.js';
 
-function janelaCadastro(lista) {
+
+function janelaCadastro() {
     console.log(`
 ================================================================
 -----------------------  CADASTRO   ----------------------------
 ================================================================
 `);
     do{
+        let lista = bd.lerArquivos();
         lista.push(cadastrarItem());
         bd.gravarArquivos(lista);
     }while(confirmacao());
