@@ -24,10 +24,17 @@ function janelaEditar(){
     } while (confirmacao());
 }
 
+function editando(){
+    do {
+        const dados = bd.lerArquivos();
+    } while (confirmacaoEdit());
+
+}
+
 function editarRemover(){
     console.log(`
 |----------------------------------------------------------------|
-| Presse 1 para editar        | Presse 2 para remover            |
+|   Presse 1 para editar      |      Presse 2 para remover       |
 |----------------------------------------------------------------|
 `);
     let escolha = Number(prompt());
@@ -39,6 +46,28 @@ function editarRemover(){
         default:
             console.log('Opção inválida, tente novamente');
             return  editarRemover();
+    }
+}
+
+function confirmacaoEdit(){
+    console.log('|------------------------------------------|');
+    console.log('|     Para repetir a operação, presse 1    |');
+    console.log('|------------------------------------------|');
+    console.log('|  Para voltar ao menu de edição, presse 2 |');
+    console.log('|------------------------------------------|');
+    console.log('|   Para voltar ao menu, presse 0          |');
+    console.log('|------------------------------------------|');
+    let escolha = Number(prompt())
+    switch(escolha){
+        case 0:
+            return menu();
+        case 1:
+            return true;
+        case 2:
+            return janelaEditar();
+        default:
+            console.log('Opção inválida, tente novamente.');
+        return confirmacao();
     }
 }
 
