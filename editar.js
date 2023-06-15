@@ -8,7 +8,7 @@ function janelaEditar(){
 -----------------------    EDITAR   ----------------------------
 ================================================================
 `); 
-    do {
+
         const dados = bd.lerArquivos();
         if(dados.length ===0){
             console.log('Não há arquivos armazenados no momento')
@@ -20,11 +20,10 @@ function janelaEditar(){
         }
         console.log('\n');
         editarRemover();
-    } while (confirmacao());
+    return confirmacao()
 }
 
 function editando(){
-    do {
         const dados = bd.lerArquivos();
         console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
         let index = Number(prompt())-1;
@@ -62,7 +61,7 @@ estado -> press 3
             console.log(`O novo estado do produto é: ${dados[index].estado}`);
             bd.gravarArquivos(dados)
         }
-    } while (confirmacaoEdit());
+    return confirmacaoEdit();
 }
 
 function removendo(){
@@ -70,6 +69,7 @@ function removendo(){
     console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
     let index = Number(prompt())-1;
     dados.splice(index, 1);
+    return confirmacaoRemover();
 }
 
 function editarRemover(){
@@ -90,6 +90,28 @@ function editarRemover(){
     }
 }
 
+function confirmacaoRemover(){
+    console.log('|------------------------------------------|');
+    console.log('|     Para repetir a operação, presse 1    |');
+    console.log('|------------------------------------------|');
+    console.log('|  Para voltar ao menu de edição, presse 2 |');
+    console.log('|------------------------------------------|');
+    console.log('|   Para voltar ao menu, presse 0          |');
+    console.log('|------------------------------------------|');
+    let escolha = Number(prompt())
+    switch(escolha){
+        case 0:
+            return menu();
+        case 1:
+            return removendo();
+        case 2:
+            return janelaEditar();
+        default:
+            console.log('Opção inválida, tente novamente.');
+        return confirmacaoEdit();
+    }
+}
+
 function confirmacaoEdit(){
     console.log('|------------------------------------------|');
     console.log('|     Para repetir a operação, presse 1    |');
@@ -103,12 +125,12 @@ function confirmacaoEdit(){
         case 0:
             return menu();
         case 1:
-            return true;
+            return editando();
         case 2:
             return janelaEditar();
         default:
             console.log('Opção inválida, tente novamente.');
-        return confirmacao();
+        return confirmacaoEdit();
     }
 }
 
@@ -125,7 +147,7 @@ function confirmacao(){
         case 0:
             return false;
         case 1:
-            return true;
+            return janelaEditar();
         case 2:
             return menu();
         default:
@@ -133,3 +155,5 @@ function confirmacao(){
         return confirmacao();
     }
 }
+
+export default {janelaEditar}
