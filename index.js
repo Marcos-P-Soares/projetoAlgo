@@ -1,11 +1,9 @@
 import { prompt } from "readline-sync";
-import bd from './bancoDados.js';
 import cadastro from './cadastro.js'
 import busca from './busca.js'
 import editar from './editar.js'
 //Menu principal, onde todas as funções serão chamadas
 function menu(){
-    let dados = bd.lerArquivos();
     console.log('|==============================================================|')
     console.log('|------------------  Lista de Compras  ------------------------|')
     console.log('|==============================================================|')
@@ -21,7 +19,7 @@ function menu(){
         case 1:
             return cadastro.janelaCadastro()//adicionar função de cadastrar itens
         case 2:
-            return busca.janelaBusca(dados)//adicionar função de verificar itens na lista
+            return busca.janelaBusca()//adicionar função de verificar itens na lista
         case 3:
             return editar.janelaEditar()//adicionar função de remover itens da lista
         case 0:

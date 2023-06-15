@@ -1,13 +1,14 @@
 import { prompt } from "readline-sync"
 import { menu } from './index.js';
+import bd from './bancoDados.js';
 
-function janelaBusca(dados) {
+function janelaBusca() {
+    const dados = bd.lerArquivos();
     console.log(`
 ================================================================
 -----------------------     BUSCA   ----------------------------
 ================================================================
 `);
-
     if(dados.length===0){
         console.log('Não há itens cadastrados!')
     }else{
@@ -18,12 +19,19 @@ function janelaBusca(dados) {
         }else{
             itensExibir.sort((a,b) => a.nome - b.nome);
             for(let i=0; i<itensExibir.length; i++){
-                console.log(`Item: ${itensExibir[i].nome} Valor: ${itensExibir[i].valor}`)
-                console.log(`Estado: ${itensExibir[i].estado}`);
-            }
+                console.log(`
+        |--------------------------------------|
+        | Item: ${itensExibir[i].nome}         
+        |--------------------------------------|
+        | Valor: R$ ${itensExibir[i].valor}    
+        |--------------------------------------|
+        | Estado: ${itensExibir[i].estado}     
+        |--------------------------------------|
+        `)
         }
+        }
+        return confirmacao();
     }
-    return confirmacao();
 }
 
 function escolherBusca(){

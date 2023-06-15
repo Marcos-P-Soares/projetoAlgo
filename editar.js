@@ -8,31 +8,33 @@ function janelaEditar(){
 -----------------------    EDITAR   ----------------------------
 ================================================================
 `); 
-
-        const dados = bd.lerArquivos();
-        if(dados.length ===0){
-            console.log('Não há arquivos armazenados no momento')
-            return menu();
-        }
-        console.log('Os itens armazenados na sua lista de compra são:\n');
-        for(let i=0; i< dados.length; i++){
-            console.log(`${i+1} -> ${dados[i].nome}`);
-        }
-        console.log('\n');
-        editarRemover();
+    const dados = bd.lerArquivos();
+    if(dados.length ===0){
+        console.log('Não há arquivos armazenados no momento')
+        return menu();
+    }
+    console.log('Os itens armazenados na sua lista de compra são:\n');
+    for(let i=0; i< dados.length; i++){
+    console.log(`${i+1} -> ${dados[i].nome}`);
+    }
+    console.log('\n');
+    editarRemover();
     return confirmacao()
 }
 
 function editando(){
-        const dados = bd.lerArquivos();
-        console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
-        let index = Number(prompt())-1;
-        console.log(`O que você deseja editar:
-Nome -> press 1
------------------
-Valor -> press 2
------------------
-estado -> press 3
+    const dados = bd.lerArquivos();
+    console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
+    let index = Number(prompt())-1;
+    console.log(`
+    O que você deseja editar:
+    |-------------------------------|
+    |       Nome -> press 1         |
+    |-------------------------------|
+    |       Valor -> press 2        |
+    |-------------------------------|
+    |       Estado -> press 3       |
+    |-------------------------------|
 `)
         let escolha = Number(prompt());
         if(escolha < 1 || escolha > 3 ||isNaN(escolha)){
@@ -66,9 +68,10 @@ estado -> press 3
 
 function removendo(){
     const dados = bd.lerArquivos();
-    console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
+    console.log('Digite o numero do item que você deseja remover segundo a lista anterior:')
     let index = Number(prompt())-1;
     dados.splice(index, 1);
+    bd.gravarArquivos(dados);
     return confirmacaoRemover();
 }
 

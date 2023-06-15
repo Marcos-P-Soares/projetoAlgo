@@ -15,7 +15,7 @@ function janelaCadastro() {
 }
 
 function cadastrarItem(){
-    console.log('| Insira os dados correspondentes ao seu produto: |');
+    console.log('| Insira os dados correspondentes ao seu produto:  |');
     const nomeProduto = receberNome();
     const valorProduto = receberValor();
     const estadoProduto = receberEstado();
@@ -45,13 +45,13 @@ function receberValor(){
 }
 
 function receberEstado(){
-    console.log('|------------------------------------------|');
-    console.log('|     Qual estado do seu produto?          |');
-    console.log('|------------------------------------------|');
-    console.log('|        Para COMPRADO, presse 1           |');
-    console.log('|------------------------------------------|');
-    console.log('|       Para item a COMPRAR, presse 0      |');
-    console.log('|------------------------------------------|');
+    console.log('   |------------------------------------------|');
+    console.log('   |     Qual estado do seu produto?          |');
+    console.log('   |------------------------------------------|');
+    console.log('   |        Para COMPRADO, presse 1           |');
+    console.log('   |------------------------------------------|');
+    console.log('   |       Para item a COMPRAR, presse 0      |');
+    console.log('   |------------------------------------------|');
 
     let escolha = Number(prompt())
     switch(escolha){
@@ -66,7 +66,7 @@ function receberEstado(){
 }
 
 function confirmacao(){
-    cconsole.log(`
+    console.log(`
     |------------------------------------------|
     |     Para repetir a operação, presse 1    |
     |------------------------------------------|
