@@ -19,16 +19,57 @@ function janelaEditar(){
             console.log(`${i+1} -> ${dados[i].nome}`);
         }
         console.log('\n');
-        
-
+        editarRemover();
     } while (confirmacao());
 }
 
 function editando(){
     do {
         const dados = bd.lerArquivos();
+        console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
+        let index = Number(prompt())-1;
+        console.log(`O que você deseja editar:
+Nome -> press 1
+-----------------
+Valor -> press 2
+-----------------
+estado -> press 3
+`)
+        let escolha = Number(prompt());
+        if(escolha < 1 || escolha > 3 ||isNaN(escolha)){
+            while(escolha < 1 || escolha > 3 ||isNaN(escolha)){
+                console.log('Insira uma opção válida:');
+                escolha = Number(prompt());
+            }
+        }
+        if(escolha === 1){
+            console.log(`O nome atual do item é: ${dados[index].nome}`);
+            console.log(`Insira o nome alterado:`);
+            dados[index].nome = prompt();
+            bd.gravarArquivos(dados)
+        }else if(escolha ===2){
+            console.log(`O valor atual do item é: ${dados[index].valor}`);
+            console.log(`Insira o novo valor:`);
+            dados[index].valor = Number(prompt());
+            bd.gravarArquivos(dados)
+        }else{
+            console.log(`O estado atual do item é: ${dados[index].estado}`);
+            if(dados[index].estado === 'COMPRAR'){
+                dados[index].estado = 'COMPRADO'
+            }else{
+                dados[index].estado = 'COMPRAR'
+            }
+            console.log(`O novo estado do produto é: ${dados[index].estado}`);
+            bd.gravarArquivos(dados)
+        }
     } while (confirmacaoEdit());
+}
 
+function removendo(){
+    const dados = bd.lerArquivos();
+    console.log('Digite o numero do item que você deseja modificar segundo a lista anterior:')
+    let index = Number(prompt())-1;
+    dados.splice(index, 1);
 }
 
 function editarRemover(){
