@@ -8,11 +8,10 @@ function janelaCadastro() {
 -----------------------  CADASTRO   ----------------------------
 ================================================================
 `);
-    do{
         let lista = bd.lerArquivos();
         lista.push(cadastrarItem());
         bd.gravarArquivos(lista);
-    }while(confirmacao());
+    return confirmacao();
 }
 
 function cadastrarItem(){
@@ -29,12 +28,12 @@ function cadastrarItem(){
 }
 
 function receberNome(){
-    console.log('|  Informe o nome do produto:   |');
+    console.log('|           Informe o nome do produto:             |');
     let name = prompt();
     return name;
 }
 function receberValor(){
-    console.log('|  Informe quanto custa o produto:    |');
+    console.log('|          Informe quanto custa o produto:         |');
     let preco = Number(prompt());
     if(isNaN(preco)){
         while(isNaN(preco)){
@@ -67,19 +66,21 @@ function receberEstado(){
 }
 
 function confirmacao(){
-    console.log('|------------------------------------------|');
-    console.log('|     Para repetir a operação, presse 1    |');
-    console.log('|------------------------------------------|');
-    console.log('|  Para voltar ao menu principal, presse 2 |');
-    console.log('|------------------------------------------|');
-    console.log('|   Para sair do aplicativo, presse 0      |');
-    console.log('|------------------------------------------|');
+    cconsole.log(`
+    |------------------------------------------|
+    |     Para repetir a operação, presse 1    |
+    |------------------------------------------|
+    |  Para voltar ao menu principal, presse 2 |
+    |------------------------------------------|
+    |   Para sair do aplicativo, presse 0      |
+    |------------------------------------------|
+    `);
     let escolha = Number(prompt())
     switch(escolha){
         case 0:
             return false;
         case 1:
-            return true;
+            return janelaCadastro();
         case 2:
             return menu();
         default:

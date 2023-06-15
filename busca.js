@@ -7,23 +7,23 @@ function janelaBusca(dados) {
 -----------------------     BUSCA   ----------------------------
 ================================================================
 `);
-    do{
-        if(dados.length===0){
+
+    if(dados.length===0){
+        console.log('Não há itens cadastrados!')
+    }else{
+        const escolha = escolherBusca()
+        const itensExibir = dados.filter((item) => item.estado == escolha )
+        if (itensExibir.length===0){
             console.log('Não há itens cadastrados!')
         }else{
-            const escolha = escolherBusca()
-            const itensExibir = dados.filter((item) => item.estado == escolha )
-            if (itensExibir.length===0){
-                console.log('Não há itens cadastrados!')
-            }else{
-                itensExibir.sort((a,b) => a.nome - b.nome);
-                for(let i=0; i<itensExibir.length; i++){
-                    console.log(`Item: ${itensExibir[i].nome} Valor: ${itensExibir[i].valor}`)
-                    console.log(`Estado: ${itensExibir[i].estado}`);
-                }
+            itensExibir.sort((a,b) => a.nome - b.nome);
+            for(let i=0; i<itensExibir.length; i++){
+                console.log(`Item: ${itensExibir[i].nome} Valor: ${itensExibir[i].valor}`)
+                console.log(`Estado: ${itensExibir[i].estado}`);
             }
         }
-    }while(confirmacao());
+    }
+    return confirmacao();
 }
 
 function escolherBusca(){
@@ -48,19 +48,21 @@ function escolherBusca(){
 }
 
 function confirmacao(){
-    console.log('|------------------------------------------|');
-    console.log('|     Para repetir a operação, presse 1    |');
-    console.log('|------------------------------------------|');
-    console.log('|  Para voltar ao menu principal, presse 2 |');
-    console.log('|------------------------------------------|');
-    console.log('|   Para sair do aplicativo, presse 0      |');
-    console.log('|------------------------------------------|');
+    console.log(`
+    |------------------------------------------|
+    |     Para repetir a operação, presse 1    |
+    |------------------------------------------|
+    |  Para voltar ao menu principal, presse 2 |
+    |------------------------------------------|
+    |   Para sair do aplicativo, presse 0      |
+    |------------------------------------------|
+    `);
     let escolha = Number(prompt())
     switch(escolha){
         case 0:
             return false;
         case 1:
-            return true;
+            return janelaBusca();
         case 2:
             return menu();
         default:

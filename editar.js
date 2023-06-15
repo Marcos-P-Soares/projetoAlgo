@@ -91,13 +91,15 @@ function editarRemover(){
 }
 
 function confirmacaoRemover(){
-    console.log('|------------------------------------------|');
-    console.log('|     Para repetir a operação, presse 1    |');
-    console.log('|------------------------------------------|');
-    console.log('|  Para voltar ao menu de edição, presse 2 |');
-    console.log('|------------------------------------------|');
-    console.log('|   Para voltar ao menu, presse 0          |');
-    console.log('|------------------------------------------|');
+    console.log(`
+    |------------------------------------------|
+    |     Para repetir a operação, presse 1    |
+    |------------------------------------------|
+    |  Para voltar ao menu de edição, presse 2 |
+    |------------------------------------------|
+    |   Para voltar ao menu, presse 0          |
+    |------------------------------------------|
+    `);
     let escolha = Number(prompt())
     switch(escolha){
         case 0:
@@ -113,13 +115,15 @@ function confirmacaoRemover(){
 }
 
 function confirmacaoEdit(){
-    console.log('|------------------------------------------|');
-    console.log('|     Para repetir a operação, presse 1    |');
-    console.log('|------------------------------------------|');
-    console.log('|  Para voltar ao menu de edição, presse 2 |');
-    console.log('|------------------------------------------|');
-    console.log('|   Para voltar ao menu, presse 0          |');
-    console.log('|------------------------------------------|');
+    console.log(`
+    |------------------------------------------|
+    |     Para repetir a operação, presse 1    |
+    |------------------------------------------|
+    |  Para voltar ao menu de edição, presse 2 |
+    |------------------------------------------|
+    |   Para voltar ao menu, presse 0          |
+    |------------------------------------------|
+    `);
     let escolha = Number(prompt())
     switch(escolha){
         case 0:
@@ -135,13 +139,15 @@ function confirmacaoEdit(){
 }
 
 function confirmacao(){
-    console.log('|------------------------------------------|');
-    console.log('|     Para repetir a operação, presse 1    |');
-    console.log('|------------------------------------------|');
-    console.log('|  Para voltar ao menu principal, presse 2 |');
-    console.log('|------------------------------------------|');
-    console.log('|   Para sair do aplicativo, presse 0      |');
-    console.log('|------------------------------------------|');
+    console.log(`
+    |------------------------------------------|
+    |     Para repetir a operação, presse 1    |
+    |------------------------------------------|
+    |  Para voltar ao menu principal, presse 2 |
+    |------------------------------------------|
+    |   Para sair do aplicativo, presse 0      |
+    |------------------------------------------|
+    `);
     let escolha = Number(prompt())
     switch(escolha){
         case 0:
